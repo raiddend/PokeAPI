@@ -32,8 +32,8 @@ public class Main {
             JSONObject actualPokeJson = new JSONObject(actResponse.body());
             JSONArray types = actualPokeJson.getJSONArray("types");
             System.out.println((i+1) + ". " + element.getString("name") + " - " + IntStream.range(0, types.length()).mapToObj(s -> types.getJSONObject(s).getJSONObject("type").getString("name")).collect(Collectors.joining(", ")));
-            System.out.println(response.statusCode());
         }
+        System.out.println(response.statusCode());
         }catch(Exception e){
             System.out.println("Ocurrio un error " + e.getMessage());
         }
